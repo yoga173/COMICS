@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comic Store</title>
+    <style>
+        /* CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .comic-item {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            width: 300px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Comic Store</h1>
+
+    <!-- Display comics -->
+    <div id="comic-list">
+        <!-- Comics will be displayed here dynamically using JavaScript -->
+    </div>
+
+    <!-- JavaScript for adding comics dynamically -->
+    <script>
+        // Sample data for comics (you can replace this with real data from a database)
+        const comics = [
+            { title: "Spider-Man", price: 10.99 },
+            { title: "Batman", price: 12.99 },
+            { title: "X-Men", price: 9.99 },
+        ];
+
+        // Function to add comics to the page
+        function addComicsToPage() {
+            const comicList = document.getElementById("comic-list");
+
+            comics.forEach(comic => {
+                const comicItem = document.createElement("div");
+                comicItem.className = "comic-item";
+                comicItem.innerHTML = `<h2>${comic.title}</h2><p>Price: $${comic.price}</p><button onclick="addToCart('${comic.title}', ${comic.price})">Add to Cart</button>`;
+                comicList.appendChild(comicItem);
+            });
+        }
+
+        // Function to add items to the cart (this is a simple example; a real e-commerce site would use a shopping cart system)
+        function addToCart(title, price) {
+            alert(`Added ${title} to the cart. Total Price: $${price}`);
+        }
+
+        // Call the function to add comics to the page
+        addComicsToPage();
+    </script>
+</body>
+</html>
